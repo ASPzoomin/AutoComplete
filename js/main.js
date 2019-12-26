@@ -1,5 +1,6 @@
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
+const validate = document.getElementById('validate');
 const searchBooks = async searchText => {
     const res = await fetch('../data/books.json');
     const books = await res.json();
@@ -10,6 +11,7 @@ const searchBooks = async searchText => {
     console.log(matches);
     if (searchText.length === 0) {
         matches = [];
+        matchList.innerHTML = '';
     }
     outputHtml(matches);
 }
@@ -30,7 +32,7 @@ const outputHtml = matches => {
         matchList.innerHTML = html;
                 
     } else {
-        matchList.innerHTML = [];
+        validate.innerHTML = `Sorry this book is among the top 100`;
     }
 }
 search.addEventListener('input',() => searchBooks(search.value))   
