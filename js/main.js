@@ -32,7 +32,7 @@ const outputHtml = matches => {
         matchList.innerHTML = html;
                 
     } else {
-        validate.innerHTML = `Sorry this book is among the top 100`;
+        matchList.innerHTML = `Sorry this book is among the top 100`;
     }
 }
 search.addEventListener('input',() => searchBooks(search.value))   
